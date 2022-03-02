@@ -1,0 +1,69 @@
+$breakpoints:
+    ('custom-small-mobile-max': (max-width: 359px),
+    'portrait-mobile-max': (max-width: 575px),
+    'mobile-min': (min-width: 576px),
+    'mobile-max': (max-width: 767px),
+    'ipad-min': (min-width: 768px),
+    'ipad-max': (max-width: 991px),
+    'desktop-min': (min-width: 992px),
+    'desktop-max': (max-width: 1199px),
+    'large-desktop-min': (min-width: 1200px),
+    'medium-large-desktop-min': (min-width: 1366px),
+    'medium-large-desktop-max': (max-width: 1400px),
+);
+
+@mixin breakpoint($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media #{inspect(map-get($breakpoints, $name))} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$name}`.";
+    }
+}
+@mixin h1{
+    font-size: 50px;
+    font-weight:$font-weight-semibold;
+    line-height: 75px;
+}
+
+@mixin nav-links{
+    color: $primray-gray-500;
+}
+@mixin nav-link-active{
+    color: $primary-black;
+}
+
+
+
+@mixin card-description{
+    color: $primary-gray-400;
+    font-size:15px;
+    font-weight: $font-weight-normal;
+    line-height:27px;
+}
+@mixin card-heading{
+    color: $primary-black;
+    font-size:18px;
+    font-weight: $font-weight-semibold;
+    line-height:21.6px;
+}
+@mixin primary-button{
+    color: $primary-white;
+    text-transform: uppercase;
+}
+
+@mixin auto-margin{
+    margin: 0 auto;
+}
+@mixin flex-row-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@mixin flex-column-wrap{
+    display: flex;
+    flex-direction: column;
+}
